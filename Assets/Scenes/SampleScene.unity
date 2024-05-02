@@ -5980,7 +5980,7 @@ MonoBehaviour:
   gravity: -2.45
   Dash: 3.5
   dashFriction: -10
-  dashCooldown: 2
+  dashCooldown: 0.5
   vRaycastOffset: 0.1
   hRaycastOffset: 0.35
   squarePrefab: {fileID: 0}
