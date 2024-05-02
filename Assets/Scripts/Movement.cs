@@ -13,10 +13,6 @@ public class Movement : MonoBehaviour
     public float dashCooldown = 2; //Default = 2
     public float vRaycastOffset = 0.1f; //Default = 0.1
     public float hRaycastOffset = 0.35f; //Default = 0.35
-    public GameObject squarePrefab;
-    GameObject newSquare1;
-    GameObject newSquare2;
-    GameObject newSquare3;
 
 
     //Jump values
@@ -74,13 +70,6 @@ public class Movement : MonoBehaviour
         vScale = transform.localScale.y / 2;
         hScale = transform.localScale.x / 2;
 
-        GameObject newSquare1 = Instantiate(squarePrefab, Vector3.zero, Quaternion.identity);
-        GameObject newSquare2 = Instantiate(squarePrefab, Vector3.zero, Quaternion.identity);
-        GameObject newSquare3 = Instantiate(squarePrefab, Vector3.zero, Quaternion.identity);
-
-        print(newSquare1);
-        print(newSquare2);
-
     }
 
     //Objects
@@ -100,7 +89,7 @@ public class Movement : MonoBehaviour
         dashForce = Mathf.Clamp(dashForce + dashFriction * Time.deltaTime, 1, Dash);
         canDash = (dashTimer >= dashCooldown) ? true : false;
 
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W)) && isGrounded)
         {
             jumpForce = jumpHeight;
         }
@@ -166,7 +155,7 @@ public class Movement : MonoBehaviour
 
         transform.position = new Vector3(Mathf.Clamp(transform.position.x, minX, maxX), Mathf.Clamp(transform.position.y, minY, maxY), transform.position.z);
 
-        if (transform.position.y == maxY)
+        if ((transform.position.y == maxY) || ((transform.position.y == minY)))
         {
             jumpForce = jumpForce / 10;
         }
