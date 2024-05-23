@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      RANDYSPRITEPABLO_0: -464394070669375235
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
